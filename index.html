@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRND Creative — Content Studio, Adelaide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D0D0F;
+    --bg-alt:#141416;
+    --panel:#18181B;
+    --text:#F1EFE7;
+    --text-dim:#8B8B90;
+    --accent:#3D6BFF;
+    --accent-soft:#3D6BFF33;
+    --coral:#FF6B4A;
+    --line:#2A2A2E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;}
+  .mono{font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
+  a{color:inherit;text-decoration:none;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
+
+  /* ---- corner bracket signature element ---- */
+  .bracketed{position:relative;}
+  .bracketed::before,.bracketed::after,
+  .bracketed .bl,.bracketed .br{
+    content:"";position:absolute;width:18px;height:18px;
+    border:2px solid var(--accent);opacity:0.55;
+    transition:opacity .3s ease, width .3s ease, height .3s ease;
+  }
+  .bracketed::before{top:-8px;left:-8px;border-right:none;border-bottom:none;}
+  .bracketed::after{top:-8px;right:-8px;border-left:none;border-bottom:none;}
+  .bracketed .bl{bottom:-8px;left:-8px;border-right:none;border-top:none;}
+  .bracketed .br{bottom:-8px;right:-8px;border-left:none;border-top:none;}
+  .bracketed:hover::before,.bracketed:hover::after,
+  .bracketed:hover .bl,.bracketed:hover .br{opacity:1;width:24px;height:24px;}
+
+  /* ---- top nav ---- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:24px 5vw;
+    mix-blend-mode:difference;
+  }
+  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;display:flex;flex-direction:column;line-height:1.05;gap:3px;}
+  .logo-sub{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:0.55rem;letter-spacing:0.32em;color:var(--accent);}
+  nav ul{list-style:none;display:flex;gap:32px;font-size:0.85rem;}
+  nav a{color:var(--text-dim);transition:color .2s;}
+  nav a:hover{color:var(--text);}
+  .nav-toggle{display:none;}
+
+  /* ---- hero ---- */
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:0 5vw;
+    position:relative;
+    background-image:
+      linear-gradient(90deg, rgba(13,13,15,.92) 0%, rgba(13,13,15,.65) 32%, rgba(13,13,15,.25) 65%, rgba(13,13,15,.35) 100%),
+      linear-gradient(0deg, rgba(13,13,15,.9) 0%, rgba(13,13,15,0) 30%),
+      url('assets/hero-photo.png');
+    background-size:cover;
+    background-position:center 30%;
+    background-repeat:no-repeat;
+  }
+  .hero-frame{
+    position:absolute;inset:40px;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+  .hero-frame span{position:absolute;width:22px;height:22px;border:2px solid var(--accent);}
+  .hero-frame .c1{top:-2px;left:-2px;border-right:none;border-bottom:none;}
+  .hero-frame .c2{top:-2px;right:-2px;border-left:none;border-bottom:none;}
+  .hero-frame .c3{bottom:-2px;left:-2px;border-right:none;border-top:none;}
+  .hero-frame .c4{bottom:-2px;right:-2px;border-left:none;border-top:none;}
+  .eyebrow{
+    color:var(--accent);font-size:0.8rem;margin-bottom:20px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  .hero h1{
+    font-size:clamp(4.5rem,16vw,11rem);
+    line-height:0.85;
+  }
+  .hero .tagline{
+    margin-top:28px;
+    font-size:clamp(1.1rem,2.2vw,1.6rem);
+    color:var(--text-dim);
+    max-width:640px;
+  }
+  .hero .tagline b{color:var(--text);font-weight:600;}
+  .hero-meta{
+    position:absolute;bottom:56px;left:5vw;right:5vw;
+    display:flex;justify-content:space-between;
+    color:var(--text-dim);font-size:0.75rem;
+  }
+
+  section{padding:140px 5vw;position:relative;}
+  .section-label{
+    color:var(--accent);font-size:0.8rem;margin-bottom:16px;
+  }
+  .section-heading{font-size:clamp(2rem,4vw,3.2rem);max-width:700px;margin-bottom:64px;}
+
+  /* ---- principles ---- */
+  .principles{border-top:1px solid var(--line);}
+  .principle-row{
+    display:grid;grid-template-columns:80px 1fr 1fr;gap:24px;align-items:baseline;
+    padding:36px 0;border-bottom:1px solid var(--line);
+  }
+  .principle-row:first-of-type{border-top:1px solid var(--line);}
+  .principle-num{color:var(--text-dim);font-size:0.85rem;}
+  .principle-word{font-size:clamp(2rem,5vw,3.5rem);}
+  .principle-desc{color:var(--text-dim);font-size:1rem;max-width:420px;}
+
+  /* ---- services ---- */
+  .services-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
+  }
+  .service-card{
+    padding:40px 28px;background:var(--panel);border:1px solid var(--line);
+    transition:border-color .3s;
+  }
+  .service-card:hover{border-color:var(--accent);}
+  .service-tag{color:var(--accent);font-size:0.75rem;margin-bottom:24px;}
+  .service-card h3{font-size:1.5rem;margin-bottom:14px;}
+  .service-card p{color:var(--text-dim);font-size:0.95rem;line-height:1.6;}
+
+  /* ---- work grid ---- */
+  .work-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+    background:var(--line);
+  }
+  .work-item{
+    aspect-ratio:4/5;background:var(--bg-alt);position:relative;overflow:hidden;
+    display:flex;align-items:flex-end;padding:20px;
+  }
+  .work-item::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(160deg,var(--accent-soft),transparent 60%);
+    opacity:0;transition:opacity .4s;
+  }
+  .work-item:hover::before{opacity:1;}
+  .work-item span{position:relative;font-size:0.75rem;color:var(--text-dim);}
+
+  /* ---- cta ---- */
+  .cta{
+    text-align:center;border-top:1px solid var(--line);
+  }
+  .cta h2{font-size:clamp(2.2rem,6vw,4.5rem);max-width:900px;margin:0 auto 40px;}
+  .cta-btn{
+    display:inline-block;padding:18px 44px;border:1px solid var(--accent);
+    color:var(--accent);font-size:0.95rem;transition:all .3s;
+  }
+  .cta-btn:hover{background:var(--accent);color:var(--bg);}
+
+  footer{
+    padding:48px 5vw;display:flex;justify-content:space-between;
+    color:var(--text-dim);font-size:0.8rem;border-top:1px solid var(--line);
+    flex-wrap:wrap;gap:16px;
+  }
+
+  @media (max-width:800px){
+    nav ul{display:none;}
+    .services-grid{grid-template-columns:1fr;}
+    .work-grid{grid-template-columns:repeat(2,1fr);}
+    .principle-row{grid-template-columns:40px 1fr;}
+    .principle-desc{grid-column:2;}
+    .hero-meta{flex-direction:column;gap:8px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">BRND<span class="logo-sub">CREATIVE</span></a>
+  <nav>
+    <ul>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="#principles">Principles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-frame" aria-hidden="true">
+    <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span>
+  </div>
+  <div class="eyebrow mono"><span class="dot"></span> ADELAIDE, AUS — CONTENT STUDIO</div>
+  <h1>BRND</h1>
+  <p class="tagline">Photography, videography and social content for local businesses that refuse to look local. <b>Bold. Real. Notable. Distinct.</b></p>
+  <div class="hero-meta mono">
+    <span>F/2.8 — ISO 400 — 24MM</span>
+    <span>SCROLL ↓</span>
+  </div>
+</section>
+
+<section id="principles" class="principles">
+  <div class="section-label mono">01 — WHAT WE STAND FOR</div>
+  <h2 class="section-heading">Four words. No compromise.</h2>
+
+  <div class="principle-row">
+    <div class="principle-num mono">B</div>
+    <div class="principle-word">Bold</div>
+    <div class="principle-desc">We shoot for the frame that stops the scroll, not the safe one.</div>
+  </div>
+  <div class="principle-row">
+    <div class="principle-num mono">R</div>
+    <div class="principle-word">Real</div>
+    <div class="principle-desc">Your business, represented as it actually is — no stock-photo gloss.</div>
+  </div>
+  <div class="principle-row">
+    <div class="principle-num mono">N</div>
+    <div class="principle-word">Notable</div>
+    <div class="principle-desc">Content built to be remembered, shared, and acted on.</div>
+  </div>
+  <div class="principle-row">
+    <div class="principle-num mono">D</div>
+    <div class="principle-word">Distinct</div>
+    <div class="principle-desc">Never templated. Every shoot is built around what makes you, you.</div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-label mono">02 — SERVICES</div>
+  <h2 class="section-heading">Three ways we tell your story.</h2>
+  <div class="services-grid">
+    <div class="service-card bracketed">
+      <span class="bl" aria-hidden="true"></span><span class="br" aria-hidden="true"></span>
+      <div class="service-tag mono">PHOTOGRAPHY</div>
+      <h3>Product &amp; property</h3>
+      <p>Real estate, retail and hospitality photography built to sell space and product at a glance.</p>
+    </div>
+    <div class="service-card bracketed">
+      <span class="bl" aria-hidden="true"></span><span class="br" aria-hidden="true"></span>
+      <div class="service-tag mono">VIDEOGRAPHY</div>
+      <h3>Motion &amp; story</h3>
+      <p>Walkthroughs, brand films and event coverage — shot handheld, edited with intent.</p>
+    </div>
+    <div class="service-card bracketed">
+      <span class="bl" aria-hidden="true"></span><span class="br" aria-hidden="true"></span>
+      <div class="service-tag mono">SOCIAL CONTENT</div>
+      <h3>Feed-ready output</h3>
+      <p>Monthly content batches cut for Instagram and TikTok — captioned, cropped, delivered on time.</p>
+    </div>
+  </div>
+  <a href="services.html" class="cta-btn mono" style="margin-top:56px;display:inline-block;">FULL SERVICE DETAILS →</a>
+</section>
+
+<section id="work">
+  <div class="section-label mono">03 — RECENT WORK</div>
+  <h2 class="section-heading">A studio in progress.</h2>
+  <div class="work-grid">
+    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-realestate-1/600/750');background-size:cover;background-position:center;"><span class="mono">REAL ESTATE — 001</span></div>
+    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-retail-2/600/750');background-size:cover;background-position:center;"><span class="mono">RETAIL — 002</span></div>
+    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-hospitality-3/600/750');background-size:cover;background-position:center;"><span class="mono">HOSPITALITY — 003</span></div>
+  </div>
+  <a href="work.html" class="cta-btn mono" style="margin-top:56px;display:inline-block;">VIEW FULL PORTFOLIO →</a>
+</section>
+
+<section class="cta">
+  <div class="section-label mono">04 — GET IN TOUCH</div>
+  <h2>Let's make something worth stopping for.</h2>
+  <a href="contact.html" class="cta-btn mono">BOOK A SHOOT</a>
+</section>
+
+<footer>
+  <div>BRND Creative — Content Studio<br>Adelaide, South Australia</div>
+  <div class="mono"><a href="contact.html">hello@brnd.studio</a></div>
+  <div class="mono">INSTAGRAM — TIKTOK — LINKEDIN</div>
+</footer>
+
+</body>
+</html>
