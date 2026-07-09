@@ -68,22 +68,36 @@
   form{display:flex;flex-direction:column;gap:28px;}
   .field{display:flex;flex-direction:column;gap:10px;}
   .field label{font-size:0.75rem;color:var(--text-dim);}
-  .field input,.field select,.field textarea{
+  .field input,.field textarea{
     background:transparent;border:none;border-bottom:1px solid var(--line);
     color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;padding:10px 2px;
     transition:border-color .2s;
   }
-  .field select{
-    appearance:none;-webkit-appearance:none;-moz-appearance:none;
-    background:transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="%238B8B90" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 2px center;
-    background-size:12px 8px;padding-right:24px;border-radius:0;cursor:pointer;
-  }
   .field textarea{resize:vertical;min-height:100px;}
-  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);outline:none;}
-  .field select option{
-    background:#000000;color:#FFFFFF;
-    font-family:'Inter',sans-serif;font-size:1rem;padding:10px;
+  .field input:focus,.field textarea:focus{border-color:var(--accent);outline:none;}
+
+  .custom-select{position:relative;}
+  .custom-select-trigger{
+    width:100%;display:flex;align-items:center;justify-content:space-between;
+    background:transparent;border:none;border-bottom:1px solid var(--line);
+    color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;padding:10px 2px;
+    cursor:pointer;transition:border-color .2s;text-align:left;
   }
+  .custom-select-trigger:focus,.custom-select-trigger[aria-expanded="true"]{border-color:var(--accent);outline:none;}
+  .custom-select-trigger svg{color:var(--text-dim);flex-shrink:0;margin-left:12px;transition:transform .2s;}
+  .custom-select-trigger[aria-expanded="true"] svg{transform:rotate(180deg);}
+  .custom-select-options{
+    position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:60;
+    list-style:none;background:#000000;border:1px solid var(--line);
+    max-height:220px;overflow-y:auto;box-shadow:0 12px 30px rgba(0,0,0,.5);
+  }
+  .custom-select-options[hidden]{display:none;}
+  .custom-select-options li{
+    padding:12px 14px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:0.95rem;
+    cursor:pointer;transition:background .15s;
+  }
+  .custom-select-options li:hover,.custom-select-options li.active{background:var(--accent-soft);}
+  .custom-select-options li.selected{color:var(--accent);}
   .submit-btn{
     align-self:flex-start;margin-top:12px;padding:18px 44px;border:1px solid var(--accent);
     background:transparent;color:var(--accent);font-size:0.95rem;font-family:'JetBrains Mono',monospace;
@@ -145,13 +159,20 @@
         <input id="email" type="email" name="email" required>
       </div>
       <div class="field">
-        <label class="mono" for="service">SERVICE</label>
-        <select id="service" name="service">
-          <option>Photography</option>
-          <option>Videography</option>
-          <option>Social content</option>
-          <option>Not sure yet</option>
-        </select>
+        <label class="mono" for="service-trigger">SERVICE</label>
+        <div class="custom-select" id="service-select">
+          <button type="button" class="custom-select-trigger" id="service-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="custom-select-value">Photography</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="custom-select-options" role="listbox" tabindex="-1" hidden>
+            <li role="option" class="selected" data-value="Photography" aria-selected="true">Photography</li>
+            <li role="option" data-value="Videography" aria-selected="false">Videography</li>
+            <li role="option" data-value="Social content" aria-selected="false">Social content</li>
+            <li role="option" data-value="Not sure yet" aria-selected="false">Not sure yet</li>
+          </ul>
+        </div>
+        <input type="hidden" id="service" name="service" value="Photography">
       </div>
       <div class="field">
         <label class="mono" for="brief">BRIEF</label>
@@ -234,6 +255,50 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+  })();
+</script>
+
+<script>
+  (function(){
+    const wrap = document.getElementById('service-select');
+    const trigger = document.getElementById('service-trigger');
+    const valueEl = trigger.querySelector('.custom-select-value');
+    const list = wrap.querySelector('.custom-select-options');
+    const options = Array.from(list.querySelectorAll('li'));
+    const hiddenInput = document.getElementById('service');
+
+    function closeList(){
+      list.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    function openList(){
+      list.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      list.hidden ? openList() : closeList();
+    });
+
+    options.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        options.forEach(function(o){ o.classList.remove('selected'); o.setAttribute('aria-selected','false'); });
+        opt.classList.add('selected');
+        opt.setAttribute('aria-selected','true');
+        valueEl.textContent = opt.dataset.value;
+        hiddenInput.value = opt.dataset.value;
+        closeList();
+        trigger.focus();
+      });
+    });
+
+    document.addEventListener('click', function(e){
+      if(!wrap.contains(e.target)) closeList();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeList();
+    });
   })();
 </script>
 </body>
