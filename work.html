@@ -78,6 +78,19 @@
   .work-item:hover::before{opacity:1;}
   .work-item span{position:relative;font-size:0.75rem;color:var(--text);text-shadow:0 2px 8px rgba(0,0,0,.6);}
 
+  .aerial-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);}
+  .aerial-item{
+    aspect-ratio:16/9;background:var(--bg-alt);position:relative;overflow:hidden;
+    display:flex;align-items:flex-end;padding:20px;background-size:cover;background-position:center;
+  }
+  .aerial-item::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(160deg,var(--accent-soft),rgba(13,13,15,.75) 75%);
+    opacity:0;transition:opacity .4s;
+  }
+  .aerial-item:hover::before{opacity:1;}
+  .aerial-item span{position:relative;font-size:0.75rem;color:var(--text);text-shadow:0 2px 8px rgba(0,0,0,.6);}
+
   .reel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
   .reel-item{background:var(--panel);border:1px solid var(--line);overflow:hidden;}
   .reel-item video{display:block;width:100%;aspect-ratio:16/9;background:#000;}
@@ -95,6 +108,7 @@
   @media (max-width:800px){
     nav ul{display:none;}
     .work-grid{grid-template-columns:repeat(2,1fr);}
+    .aerial-grid{grid-template-columns:1fr;}
     .reel-grid{grid-template-columns:1fr;}
   }
   @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}html{scroll-behavior:auto;}}
@@ -132,8 +146,19 @@
   </div>
 </section>
 
+<section id="aerial-work">
+  <div class="section-label mono">02 — AERIAL</div>
+  <h2 class="section-heading">Aerial.</h2>
+  <div class="aerial-grid">
+    <div class="aerial-item" style="background-image:url('assets/AERIAL_001.jpeg');"><span class="mono">CAMPUS — 001</span></div>
+    <div class="aerial-item" style="background-image:url('assets/AERIAL_002.jpeg');"><span class="mono">CAMPUS — 002</span></div>
+    <div class="aerial-item" style="background-image:url('assets/AERIAL_003.jpeg');"><span class="mono">CAMPUS — 003</span></div>
+    <div class="aerial-item" style="background-image:url('assets/AERIAL_004.jpeg');"><span class="mono">CAMPUS — 004</span></div>
+  </div>
+</section>
+
 <section id="video-work">
-  <div class="section-label mono">02 — MOTION</div>
+  <div class="section-label mono">03 — MOTION</div>
   <h2 class="section-heading">Motion.</h2>
   <div class="reel-grid">
     <div class="reel-item">
@@ -158,7 +183,7 @@
 </section>
 
 <section class="cta">
-  <div class="section-label mono">03 — GET IN TOUCH</div>
+  <div class="section-label mono">04 — GET IN TOUCH</div>
   <h2>Let's make a story worth telling.</h2>
   <a href="contact.html" class="cta-btn mono">BOOK A SHOOT</a>
 </section>
