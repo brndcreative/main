@@ -65,8 +65,22 @@
     border-bottom:1px solid rgba(241,239,231,0.08);
     box-shadow:0 8px 30px rgba(0,0,0,0.28);
   }
-  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;display:flex;flex-direction:column;line-height:1.05;gap:3px;}
-  .logo-sub{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:0.55rem;letter-spacing:0.32em;color:var(--accent);}
+  .logo{
+    font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;
+    letter-spacing:0.02em;display:flex;align-items:center;gap:0.32em;
+  }
+  .logo-creative{
+    color:transparent;
+    -webkit-text-stroke:0.8px var(--text);
+    text-stroke:0.8px var(--text);
+  }
+  .logo-i-wrap{position:relative;display:inline-block;}
+  .logo-dot{
+    position:absolute;left:50%;top:0.42em;
+    width:0.16em;height:0.16em;min-width:3px;min-height:3px;
+    border-radius:50%;background:var(--coral);
+    transform:translate(-50%,-100%);
+  }
   nav ul{list-style:none;display:flex;gap:32px;font-size:0.85rem;}
   nav a{color:var(--text-dim);transition:color .2s;}
   nav a:hover{color:var(--text);}
@@ -106,7 +120,19 @@
     font-size:clamp(2.8rem,9vw,6.5rem);
     line-height:0.95;
   }
-  .hero h1 .hero-sub{color:#FFFFFF;}
+  .hero h1 .hero-sub{
+    color:transparent;
+    -webkit-text-stroke:1.5px #FFFFFF;
+    text-stroke:1.5px #FFFFFF;
+  }
+  .hero h1 .i-wrap{position:relative;display:inline-block;}
+  .hero h1 .i-wrap .dot{
+    position:absolute;left:50%;top:0.24em;
+    width:0.13em;height:0.13em;min-width:9px;min-height:9px;
+    border-radius:50%;background:var(--coral);
+    transform:translate(-50%,-100%);
+    animation:pulse 2s infinite;
+  }
   .hero .tagline{
     margin-top:28px;
     font-size:clamp(1.1rem,2.2vw,1.6rem);
@@ -142,6 +168,7 @@
   }
   .service-card:hover{border-color:var(--accent);}
   .service-tag{color:var(--accent);font-size:0.75rem;margin-bottom:24px;}
+  .service-icon{width:40px;height:40px;color:var(--accent);margin-bottom:20px;display:block;}
   .service-card h3{font-size:1.5rem;margin-bottom:14px;}
   .service-card p{color:var(--text-dim);font-size:0.95rem;line-height:1.6;}
 
@@ -195,7 +222,7 @@
 <body>
 
 <header>
-  <a href="index.html" class="logo">BRND<span class="logo-sub">CREATIVE</span></a>
+  <a href="index.html" class="logo">BRND <span class="logo-creative">Creat<span class="logo-i-wrap">ı<span class="logo-dot" aria-hidden="true"></span></span>ve</span></a>
   <nav>
     <ul>
       <li><a href="services.html">Services</a></li>
@@ -210,9 +237,8 @@
   <div class="hero-frame" aria-hidden="true">
     <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span>
   </div>
-  <div class="eyebrow mono"><span class="dot"></span> ADELAIDE, AU — CONTENT SOLUTION</div>
-  <h1>BRND <span class="hero-sub">Creative</span></h1>
-  <p class="tagline">Photography, film &amp; social content for local business.</p>
+  <h1>BRND <span class="hero-sub">Creat<span class="i-wrap">ı<span class="dot" aria-hidden="true"></span></span>ve</span></h1>
+  <p class="tagline">Photography, film and social content for Adelaide local businesses.</p>
   <div class="hero-meta mono">
     <span>F/2.8 — ISO 400 — 24MM</span>
     <span>SCROLL ↓</span>
@@ -220,31 +246,50 @@
 </section>
 
 <section id="principles" class="about">
-  <div class="section-label mono">01 — ABOUT US</div>
+  <div class="section-label mono">ABOUT US</div>
   <h2 class="section-heading">Every business has a story worth telling.</h2>
   <p class="about-copy">At BRND Creative, we believe every brand has a story worth telling. We bring that story to life through compelling photography and cinematic films that capture your vision, connect with your audience, and leave a lasting impression.</p>
   <p class="about-copy">Whether you're launching a new business, showcasing your products, highlighting your services, or building your online presence, we create purposeful visual content tailored to your brand. From concept to final delivery, we provide a complete content solution designed to elevate your marketing and help your business stand out.</p>
 </section>
 
 <section id="services">
-  <div class="section-label mono">02 — SERVICES</div>
+  <div class="section-label mono">SERVICES</div>
   <h2 class="section-heading">How we tell it.</h2>
   <div class="services-grid">
     <div class="service-card bracketed">
       <span class="bl" aria-hidden="true"></span><span class="br" aria-hidden="true"></span>
-      <div class="service-tag mono">01</div>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="5" y="14" width="38" height="26" rx="2" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M17 14L20.2 8.5H27.8L31 14" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <circle cx="24" cy="27.5" r="8" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="24" cy="27.5" r="3" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
       <h3>Photography</h3>
       <p>Professional imagery that showcases your brand, products, people, and moments with clarity and impact.</p>
     </div>
     <div class="service-card bracketed">
       <span class="bl" aria-hidden="true"></span><span class="br" aria-hidden="true"></span>
-      <div class="service-tag mono">02</div>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="5" y="12" width="28" height="24" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M33 20L43 15V33L33 28" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <line x1="5" y1="18" x2="33" y2="18" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="5" y1="30" x2="33" y2="30" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="12" y1="12" x2="9" y2="18" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="20" y1="12" x2="17" y2="18" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="28" y1="12" x2="25" y2="18" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
       <h3>Film</h3>
       <p>Cinematic videos that communicate your message, capture emotion, and create lasting connections with your audience.</p>
     </div>
     <div class="service-card bracketed">
       <span class="bl" aria-hidden="true"></span><span class="br" aria-hidden="true"></span>
-      <div class="service-tag mono">03</div>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="12" cy="24" r="5" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="36" cy="11" r="5" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="36" cy="37" r="5" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="16.3" y1="21.7" x2="31.7" y2="13.3" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="16.3" y1="26.3" x2="31.7" y2="34.7" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
       <h3>Social Content</h3>
       <p>Strategic photo and video content designed for social media — helping your brand stay consistent, relevant, and engaging across every platform.</p>
     </div>
@@ -253,28 +298,28 @@
 </section>
 
 <section id="work">
-  <div class="section-label mono">03 — FEATURED WORK</div>
+  <div class="section-label mono">FEATURED WORK</div>
   <h2 class="section-heading">Featured work.</h2>
   <div class="work-grid">
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-realestate-1/600/750');background-size:cover;background-position:center;"><span class="mono">REAL ESTATE</span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-retail-2/600/750');background-size:cover;background-position:center;"><span class="mono">RETAIL</span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-hospitality-3/600/750');background-size:cover;background-position:center;"><span class="mono">HOSPITALITY</span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-event-4/600/750');background-size:cover;background-position:center;"><span class="mono">EVENTS</span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-social-5/600/750');background-size:cover;background-position:center;"><span class="mono">SOCIAL</span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-brandfilm-6/600/750');background-size:cover;background-position:center;"><span class="mono">BRAND FILM</span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/realestate,house,interior?lock=101');background-size:cover;background-position:center;"><span class="mono">REAL ESTATE</span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/retail,boutique,store?lock=102');background-size:cover;background-position:center;"><span class="mono">RETAIL</span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/restaurant,cafe,hospitality?lock=103');background-size:cover;background-position:center;"><span class="mono">HOSPITALITY</span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/event,crowd,celebration?lock=104');background-size:cover;background-position:center;"><span class="mono">EVENTS</span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/socialmedia,phone,influencer?lock=105');background-size:cover;background-position:center;"><span class="mono">SOCIAL</span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/filmcamera,videoproduction?lock=106');background-size:cover;background-position:center;"><span class="mono">BRAND FILM</span></div>
   </div>
   <a href="work.html" class="cta-btn mono" style="margin-top:56px;display:inline-block;">VIEW FULL PORTFOLIO →</a>
 </section>
 
 <section class="cta">
-  <div class="section-label mono">04 — GET IN TOUCH</div>
+  <div class="section-label mono">GET IN TOUCH</div>
   <h2>Let's make a story worth telling.</h2>
   <a href="contact.html" class="cta-btn mono">BOOK A SHOOT</a>
 </section>
 
 <footer>
   <div>BRND Creative — Content Studio<br>Adelaide, South Australia</div>
-  <div class="mono"><a href="contact.html">hello@brnd.studio</a></div>
+  <div class="mono"><a href="contact.html">hello@brndcreative.com.au</a></div>
   <div class="mono">INSTAGRAM — TIKTOK — LINKEDIN</div>
 </footer>
 
