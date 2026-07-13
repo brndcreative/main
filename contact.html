@@ -5,9 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — BRND Creative, Adelaide</title>
 <meta name="description" content="Get in touch with BRND Creative for photography, film and social content across Adelaide and South Australia. Send your brief and we'll reply within 1 business day.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-ExtraLight.ttf') format('truetype');font-weight:200;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-ExtraLightItalic.ttf') format('truetype');font-weight:200;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-LightItalic.ttf') format('truetype');font-weight:300;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-MediumItalic.ttf') format('truetype');font-weight:500;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-SemiBoldItalic.ttf') format('truetype');font-weight:600;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-BoldItalic.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-ExtraBold.ttf') format('truetype');font-weight:800;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-ExtraBoldItalic.ttf') format('truetype');font-weight:800;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-Black.ttf') format('truetype');font-weight:900;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Raleway';src:url('assets/fonts/Raleway-BlackItalic.ttf') format('truetype');font-weight:900;font-style:italic;font-display:swap;}
   :root{
     --bg:#0D0D0F;
     --bg-alt:#141416;
@@ -21,9 +35,9 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;}
-  .mono{font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
+  body{background:var(--bg);color:var(--text);font-family:'Raleway',sans-serif;overflow-x:hidden;}
+  h1,h2,h3{font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.02em;}
+  .mono{font-family:'Raleway',sans-serif;letter-spacing:0.04em;}
   a{color:inherit;text-decoration:none;}
   :focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
 
@@ -45,8 +59,8 @@
     border-bottom:1px solid rgba(241,239,231,0.08);
     box-shadow:0 8px 30px rgba(0,0,0,0.28);
   }
-  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;display:flex;flex-direction:column;line-height:1.05;gap:3px;}
-  .logo-sub{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:0.55rem;letter-spacing:0.32em;color:var(--accent);}
+  .logo{font-family:'Raleway',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;display:flex;flex-direction:column;line-height:1.05;gap:3px;}
+  .logo-sub{font-family:'Raleway',sans-serif;font-weight:500;font-size:0.55rem;letter-spacing:0.32em;color:var(--accent);}
   nav ul{list-style:none;display:flex;gap:32px;font-size:0.85rem;}
   nav a{color:var(--text-dim);transition:color .2s;}
   nav a:hover,nav a.active{color:var(--text);}
@@ -71,7 +85,7 @@
   .field label{font-size:0.75rem;color:var(--text-dim);}
   .field input,.field textarea{
     background:transparent;border:none;border-bottom:1px solid var(--line);
-    color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;padding:10px 2px;
+    color:var(--text);font-family:'Raleway',sans-serif;font-size:1rem;padding:10px 2px;
     transition:border-color .2s;
   }
   .field textarea{resize:vertical;min-height:100px;}
@@ -81,7 +95,7 @@
   .custom-select-trigger{
     width:100%;display:flex;align-items:center;justify-content:space-between;
     background:transparent;border:none;border-bottom:1px solid var(--line);
-    color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;padding:10px 2px;
+    color:var(--text);font-family:'Raleway',sans-serif;font-size:1rem;padding:10px 2px;
     cursor:pointer;transition:border-color .2s;text-align:left;
   }
   .custom-select-trigger:focus,.custom-select-trigger[aria-expanded="true"]{border-color:var(--accent);outline:none;}
@@ -94,14 +108,14 @@
   }
   .custom-select-options[hidden]{display:none;}
   .custom-select-options li{
-    padding:12px 14px;color:#FFFFFF;font-family:'Inter',sans-serif;font-size:0.95rem;
+    padding:12px 14px;color:#FFFFFF;font-family:'Raleway',sans-serif;font-size:0.95rem;
     cursor:pointer;transition:background .15s;
   }
   .custom-select-options li:hover,.custom-select-options li.active{background:var(--accent-soft);}
   .custom-select-options li.selected{color:var(--accent);}
   .submit-btn{
     align-self:flex-start;margin-top:12px;padding:18px 44px;border:1px solid var(--accent);
-    background:transparent;color:var(--accent);font-size:0.95rem;font-family:'JetBrains Mono',monospace;
+    background:transparent;color:var(--accent);font-size:0.95rem;font-family:'Raleway',sans-serif;
     letter-spacing:0.04em;cursor:pointer;transition:all .3s;
   }
   .submit-btn:hover{background:var(--accent);color:var(--bg);}
