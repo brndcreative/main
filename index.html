@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BRND Creative — Content Studio, Adelaide</title>
+<meta name="description" content="Photography, film and social content for Adelaide businesses. BRND Creative helps brands stand out with cinematic visuals for real estate, construction, products, retail, hospitality and events.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -188,6 +189,8 @@
   }
   .work-item:hover::before{opacity:1;}
   .work-item span{position:relative;font-size:0.75rem;color:var(--text-dim);}
+  .work-item .work-label{display:block;color:var(--text);margin-bottom:6px;}
+  .work-item .work-desc{display:block;font-family:'Inter',sans-serif;letter-spacing:normal;font-size:0.8rem;line-height:1.4;color:var(--text-dim);max-width:220px;}
 
   /* ---- cta ---- */
   .cta{
@@ -222,7 +225,7 @@
 <body>
 
 <header>
-  <a href="index.html" class="logo">BRND <span class="logo-creative">Creat<span class="logo-i-wrap">ı<span class="logo-dot" aria-hidden="true"></span></span>ve</span></a>
+  <a href="index.html" class="logo">BRND <span class="logo-creative">Creat<span class="logo-i-wrap">i<span class="logo-dot" aria-hidden="true"></span></span>ve</span></a>
   <nav>
     <ul>
       <li><a href="services.html">Services</a></li>
@@ -237,8 +240,8 @@
   <div class="hero-frame" aria-hidden="true">
     <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span>
   </div>
-  <h1>BRND <span class="hero-sub">Creat<span class="i-wrap">ı<span class="dot" aria-hidden="true"></span></span>ve</span></h1>
-  <p class="tagline">Photography, film and social content for Adelaide local businesses.</p>
+  <h1>BRND <span class="hero-sub">Creat<span class="i-wrap">i<span class="dot" aria-hidden="true"></span></span>ve</span></h1>
+  <p class="tagline">Photography, film and social content for local businesses across Adelaide and South Australia.</p>
   <div class="hero-meta mono">
     <span>F/2.8 — ISO 400 — 24MM</span>
     <span>SCROLL ↓</span>
@@ -248,13 +251,14 @@
 <section id="principles" class="about">
   <div class="section-label mono">ABOUT US</div>
   <h2 class="section-heading">Every business has a story worth telling.</h2>
-  <p class="about-copy">At BRND Creative, we believe every brand has a story worth telling. We bring that story to life through compelling photography and cinematic films that capture your vision, connect with your audience, and leave a lasting impression.</p>
-  <p class="about-copy">Whether you're launching a new business, showcasing your products, highlighting your services, or building your online presence, we create purposeful visual content tailored to your brand. From concept to final delivery, we provide a complete content solution designed to elevate your marketing and help your business stand out.</p>
+  <p class="about-copy">At BRND Creative, we believe every brand has a story worth telling. Based in Adelaide's CBD, we bring that story to life through compelling photography and cinematic films that capture your vision, connect with your audience, and leave a lasting impression.</p>
+  <p class="about-copy">Whether you're launching a new business, showcasing your products, highlighting your services, or building your online presence, we create purposeful visual content tailored to your brand. From concept to final delivery, we provide a complete content solution for businesses across Adelaide and South Australia, designed to elevate your marketing and help your business stand out.</p>
 </section>
 
 <section id="services">
   <div class="section-label mono">SERVICES</div>
   <h2 class="section-heading">How we tell it.</h2>
+  <p class="about-copy" style="margin-bottom:56px;">From Adelaide's CBD to businesses across greater South Australia, we tailor every shoot to how your brand actually works.</p>
   <div class="services-grid">
     <div class="service-card bracketed">
       <span class="bl" aria-hidden="true"></span><span class="br" aria-hidden="true"></span>
@@ -300,13 +304,14 @@
 <section id="work">
   <div class="section-label mono">FEATURED WORK</div>
   <h2 class="section-heading">Featured work.</h2>
+  <p class="about-copy" style="margin-bottom:56px;">A look at recent photography and film projects for businesses across Adelaide, South Australia.</p>
   <div class="work-grid">
-    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/realestate,house,interior?lock=101');background-size:cover;background-position:center;"><span class="mono">REAL ESTATE</span></div>
-    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/retail,boutique,store?lock=102');background-size:cover;background-position:center;"><span class="mono">RETAIL</span></div>
-    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/restaurant,cafe,hospitality?lock=103');background-size:cover;background-position:center;"><span class="mono">HOSPITALITY</span></div>
-    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/event,crowd,celebration?lock=104');background-size:cover;background-position:center;"><span class="mono">EVENTS</span></div>
-    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/socialmedia,phone,influencer?lock=105');background-size:cover;background-position:center;"><span class="mono">SOCIAL</span></div>
-    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/filmcamera,videoproduction?lock=106');background-size:cover;background-position:center;"><span class="mono">BRAND FILM</span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/realestate,house,interior?lock=101');background-size:cover;background-position:center;"><span><span class="mono work-label">REAL ESTATE</span><span class="work-desc">Real estate photography and film that helps Adelaide listings sell faster.</span></span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/retail,boutique,store?lock=102');background-size:cover;background-position:center;"><span><span class="mono work-label">RETAIL</span><span class="work-desc">Product and in-store content that gets South Australian retail brands noticed.</span></span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/restaurant,cafe,hospitality?lock=103');background-size:cover;background-position:center;"><span><span class="mono work-label">HOSPITALITY</span><span class="work-desc">Menu, venue and atmosphere shoots for Adelaide cafes, bars and restaurants.</span></span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/event,crowd,celebration?lock=104');background-size:cover;background-position:center;"><span><span class="mono work-label">EVENTS</span><span class="work-desc">Coverage that captures the energy of launches and events across Adelaide.</span></span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/socialmedia,phone,influencer?lock=105');background-size:cover;background-position:center;"><span><span class="mono work-label">SOCIAL</span><span class="work-desc">Platform-ready content that keeps South Australian brands active online.</span></span></div>
+    <div class="work-item" style="background-image:url('https://loremflickr.com/600/750/filmcamera,videoproduction?lock=106');background-size:cover;background-position:center;"><span><span class="mono work-label">BRAND FILM</span><span class="work-desc">Cinematic brand films that tell an Adelaide business's story with impact.</span></span></div>
   </div>
   <a href="work.html" class="cta-btn mono" style="margin-top:56px;display:inline-block;">VIEW FULL PORTFOLIO →</a>
 </section>
