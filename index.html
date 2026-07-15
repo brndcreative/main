@@ -17,13 +17,14 @@
   :root{
     --cream:#F4F1EA;
     --cream-alt:#ECE7DC;
-    --olive:#363A2C;
-    --olive-soft:#474C3A;
+    --olive:#D4AC68;
+    --olive-soft:#B58F4E;
+    --olive-dim:rgba(27,27,22,0.68);
     --ink:#1B1B16;
     --ink-dim:#6E6C5E;
     --paper-dim:#B9B7A8;
     --line:#DDD7C8;
-    --line-dark:rgba(244,241,234,0.16);
+    --line-dark:rgba(27,27,22,0.14);
     --coral:#FF6B4A;
     --serif:Georgia,'Iowan Old Style','Times New Roman',serif;
   }
@@ -35,6 +36,7 @@
   .serif{font-family:var(--serif);font-style:italic;font-weight:400;}
   .eyebrow{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-dim);}
   .eyebrow.on-dark{color:var(--paper-dim);}
+  .eyebrow.on-gold{color:var(--olive-dim);}
 
   /* ---- plus / dot marks ---- */
   .plus{position:relative;width:16px;height:16px;flex:none;}
@@ -46,10 +48,8 @@
   .dot{width:8px;height:8px;border-radius:50%;background:var(--coral);flex:none;}
 
   /* ---- logo (brand identity kept, recoloured) ---- */
-  .logo{font-family:'Raleway',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:0.02em;display:flex;align-items:center;gap:0.32em;}
-  .logo-creative{color:transparent;-webkit-text-stroke:0.8px currentColor;}
-  .logo-i-wrap{position:relative;display:inline-block;}
-  .logo-dot{position:absolute;left:50%;top:0.42em;width:0.16em;height:0.16em;min-width:3px;min-height:3px;border-radius:50%;background:var(--coral);transform:translate(-50%,-100%);}
+  .logo{display:flex;align-items:center;}
+  .logo-img{height:44px;width:44px;border-radius:9px;display:block;object-fit:cover;}
 
   /* ---- header ---- */
   header{
@@ -87,9 +87,9 @@
   /* ---- services split panels ---- */
   .panel{display:grid;grid-template-columns:1fr 1fr;min-height:64vh;}
   .panel-img{background-size:cover;background-position:center;}
-  .panel-copy{background:var(--olive);color:var(--cream);padding:80px 5vw;display:flex;flex-direction:column;justify-content:center;position:relative;}
+  .panel-copy{background:var(--olive);color:var(--ink);padding:80px 5vw;display:flex;flex-direction:column;justify-content:center;position:relative;}
   .panel-copy h3{font-size:clamp(1.9rem,3.6vw,3rem);margin-bottom:26px;}
-  .panel-copy p{color:var(--paper-dim);font-size:1rem;line-height:1.75;max-width:420px;font-family:'Raleway',sans-serif;font-style:normal;}
+  .panel-copy p{color:var(--olive-dim);font-size:1rem;line-height:1.75;max-width:420px;font-family:'Raleway',sans-serif;font-style:normal;}
   .panel-copy p+p{margin-top:16px;}
   .panel.reverse{grid-template-columns:1fr 1fr;}
   .panel.reverse .panel-copy{order:1;background:var(--cream-alt);color:var(--ink);}
@@ -129,24 +129,25 @@
   /* ---- cta ---- */
   .cta{text-align:center;border-top:1px solid var(--line);}
   .cta h2{font-size:clamp(2.3rem,6vw,4.6rem);max-width:900px;margin:0 auto 44px;}
-  .pill-btn{display:inline-flex;align-items:center;gap:10px;padding:19px 40px;border-radius:999px;background:var(--olive);color:var(--cream);font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;transition:transform .25s ease, background .25s ease;}
-  .pill-btn:hover{background:var(--ink);transform:translateY(-2px);}
+  .pill-btn{display:inline-flex;align-items:center;gap:10px;padding:19px 40px;border-radius:999px;background:var(--olive);color:var(--ink);font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;transition:transform .25s ease, background .25s ease, color .25s ease;}
+  .pill-btn:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px);}
   .pill-btn .arrow{transition:transform .2s;}
   .pill-btn:hover .arrow{transform:translate(2px,-2px);}
 
   /* ---- footer ---- */
-  footer{background:var(--olive);color:var(--cream);padding:96px 5vw 40px;position:relative;}
+  footer{background:var(--olive);color:var(--ink);padding:96px 5vw 40px;position:relative;}
   .foot-top{display:grid;grid-template-columns:auto 1fr auto auto;gap:60px;align-items:start;padding-bottom:80px;}
-  .foot-mark{font-family:var(--serif);font-style:italic;font-size:clamp(5rem,11vw,8.5rem);line-height:0.8;color:var(--cream);}
+  .foot-mark{line-height:0;}
+  .foot-mark-img{width:clamp(96px,13vw,160px);height:auto;border-radius:16px;display:block;}
   .foot-nav{display:flex;flex-direction:column;gap:12px;font-size:0.9rem;padding-top:14px;}
-  .foot-nav a{display:inline-flex;align-items:center;gap:6px;color:var(--paper-dim);transition:color .2s;}
-  .foot-nav a:hover{color:var(--cream);}
+  .foot-nav a{display:inline-flex;align-items:center;gap:6px;color:var(--olive-dim);transition:color .2s;}
+  .foot-nav a:hover{color:var(--ink);}
   .foot-cta{display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:6px;}
   .foot-cta .socials{display:flex;gap:20px;}
-  .foot-cta .socials a{color:var(--paper-dim);font-size:0.78rem;letter-spacing:0.08em;transition:color .2s;}
-  .foot-cta .socials a:hover{color:var(--cream);}
-  .foot-tag{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--cream);text-align:right;padding-top:14px;}
-  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid var(--line-dark);padding-top:32px;color:var(--paper-dim);font-size:0.78rem;letter-spacing:0.04em;}
+  .foot-cta .socials a{color:var(--olive-dim);font-size:0.78rem;letter-spacing:0.08em;transition:color .2s;}
+  .foot-cta .socials a:hover{color:var(--ink);}
+  .foot-tag{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--ink);text-align:right;padding-top:14px;}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid var(--line-dark);padding-top:32px;color:var(--olive-dim);font-size:0.78rem;letter-spacing:0.04em;}
 
   @media (max-width:900px){
     nav ul{display:none;}
@@ -163,7 +164,7 @@
 <body>
 
 <header>
-  <a href="index.html" class="logo">BRND <span class="logo-creative">Creat<span class="logo-i-wrap">i<span class="logo-dot" aria-hidden="true"></span></span>ve</span></a>
+  <a href="index.html" class="logo"><img src="assets/logo.png" alt="BRND Creative" class="logo-img"></a>
   <nav>
     <ul>
       <li><a href="services.html">Services <span class="arrow">↗</span></a></li>
@@ -192,7 +193,7 @@
 <div class="panel">
   <div class="panel-img" style="background-image:url('https://loremflickr.com/900/1000/realestate,architecture,adelaide?lock=201');"></div>
   <div class="panel-copy">
-    <span class="eyebrow on-dark">01 — Photography</span>
+    <span class="eyebrow on-gold">01 — Photography</span>
     <h3 class="serif" style="margin-top:22px;">Product &amp; property</h3>
     <p>Listing shoots, retail and product imagery, menu and venue photography — clean, well-lit and turned around fast.</p>
     <p>Same-week delivery as standard, so the content is ready while the listing or launch still matters.</p>
@@ -212,7 +213,7 @@
 <div class="panel">
   <div class="panel-img" style="background-image:url('https://loremflickr.com/900/1000/socialmedia,phone,content?lock=203');"></div>
   <div class="panel-copy">
-    <span class="eyebrow on-dark">03 — Social Content</span>
+    <span class="eyebrow on-gold">03 — Social Content</span>
     <h3 class="serif" style="margin-top:22px;">Feed-ready output</h3>
     <p>Monthly retainer batches, reels and short-form edits, cropped and captioned for every platform they're going on.</p>
     <p>A standing content calendar, so posting stops being the thing that gets skipped.</p>
@@ -281,7 +282,7 @@
 
 <footer>
   <div class="foot-top">
-    <div class="foot-mark">B.</div>
+    <div class="foot-mark"><img src="assets/logo.png" alt="BRND Creative" class="foot-mark-img"></div>
     <div class="foot-nav">
       <a href="services.html">Services <span class="arrow">↗</span></a>
       <a href="work.html">Work <span class="arrow">↗</span></a>
