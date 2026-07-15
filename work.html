@@ -25,14 +25,13 @@
     --paper-dim:#B9B7A8;
     --line:#DDD7C8;
     --line-dark:rgba(27,27,22,0.14);
-    --coral:#FF6B4A;
     --serif:Georgia,'Iowan Old Style','Times New Roman',serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{background:var(--cream);color:var(--ink);font-family:'Raleway',sans-serif;font-weight:400;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
-  :focus-visible{outline:2px solid var(--coral);outline-offset:4px;}
+  :focus-visible{outline:2px solid var(--olive-soft);outline-offset:4px;}
   .serif{font-family:var(--serif);font-style:italic;font-weight:400;}
   .eyebrow{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-dim);}
 
@@ -76,6 +75,13 @@
   .work-item:hover span{opacity:1;transform:translateY(0);}
   .work-item .wl{display:block;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--olive);margin-bottom:6px;}
   .work-item .wd{font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:1.3;max-width:220px;}
+  .work-item.ph{background:var(--cream-alt);border:1px solid var(--line);}
+  .work-item.ph::before{display:none;}
+  .work-item.ph span{opacity:1;transform:none;color:var(--ink);}
+  .work-item.ph .wl{color:var(--olive-soft);}
+  .work-item.ph:hover{border-color:var(--olive-soft);}
+  .reel-item.ph{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:20px;text-align:center;}
+  .reel-item.ph .ph-note{color:var(--ink-dim);font-size:0.82rem;}
 
   .aerial-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);}
   .aerial-item{aspect-ratio:16/9;position:relative;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:22px;}
@@ -149,12 +155,12 @@
     <h2 class="serif" style="margin-top:20px;">Stills.</h2>
   </div>
   <div class="work-grid">
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-realestate-1/700/875');"><span><span class="wl">Real Estate</span><span class="wd">Listing photography that helps Adelaide properties sell faster.</span></span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-retail-2/700/875');"><span><span class="wl">Retail</span><span class="wd">Product and in-store imagery for South Australian retail brands.</span></span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-hospitality-3/700/875');"><span><span class="wl">Hospitality</span><span class="wd">Menu and venue photography for Adelaide cafes, bars and restaurants.</span></span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-event-4/700/875');"><span><span class="wl">Events</span><span class="wd">Event coverage that captures the energy of launches across Adelaide.</span></span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-social-5/700/875');"><span><span class="wl">Social</span><span class="wd">Platform-ready content that keeps South Australian brands active online.</span></span></div>
-    <div class="work-item" style="background-image:url('https://picsum.photos/seed/brnd-brandfilm-6/700/875');"><span><span class="wl">Brand Film</span><span class="wd">Cinematic brand films that tell an Adelaide business's story with impact.</span></span></div>
+    <div class="work-item ph"><span><span class="wl">Real Estate</span><span class="wd">Listing photography that helps Adelaide properties sell faster.</span></span></div>
+    <div class="work-item ph"><span><span class="wl">Retail</span><span class="wd">Product and in-store imagery for South Australian retail brands.</span></span></div>
+    <div class="work-item ph"><span><span class="wl">Hospitality</span><span class="wd">Menu and venue photography for Adelaide cafes, bars and restaurants.</span></span></div>
+    <div class="work-item ph"><span><span class="wl">Events</span><span class="wd">Event coverage that captures the energy of launches across Adelaide.</span></span></div>
+    <div class="work-item ph"><span><span class="wl">Social</span><span class="wd">Platform-ready content that keeps South Australian brands active online.</span></span></div>
+    <div class="work-item ph"><span><span class="wl">Brand Film</span><span class="wd">Cinematic brand films that tell an Adelaide business's story with impact.</span></span></div>
   </div>
 </section>
 
@@ -177,23 +183,13 @@
     <h2 class="serif" style="margin-top:20px;">Motion.</h2>
   </div>
   <div class="reel-grid">
-    <div class="reel-item">
-      <video controls preload="metadata" poster="https://picsum.photos/seed/brnd-video-walkthrough/800/450">
-        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-        Your browser does not support embedded video.
-      </video>
-      <div class="reel-caption">
-        <span class="serif">Property Walkthrough</span>
-      </div>
+    <div class="reel-item ph">
+      <span class="serif" style="font-size:1.3rem;">Property Walkthrough</span>
+      <span class="ph-note">Video to be added</span>
     </div>
-    <div class="reel-item">
-      <video controls preload="metadata" poster="https://picsum.photos/seed/brnd-video-brandfilm/800/450">
-        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
-        Your browser does not support embedded video.
-      </video>
-      <div class="reel-caption">
-        <span class="serif">Brand Film</span>
-      </div>
+    <div class="reel-item ph">
+      <span class="serif" style="font-size:1.3rem;">Brand Film</span>
+      <span class="ph-note">Video to be added</span>
     </div>
   </div>
 </section>
